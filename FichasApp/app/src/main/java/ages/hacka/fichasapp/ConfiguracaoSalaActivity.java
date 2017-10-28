@@ -3,7 +3,7 @@ package ages.hacka.fichasapp;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class configuracaoSalaActivity extends AppCompatActivity {
+public class ConfiguracaoSalaActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

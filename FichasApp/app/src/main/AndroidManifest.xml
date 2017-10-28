@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".criarEntrarSala" />
-        <activity android:name=".configuracaoSalaActivity"></activity>
+        <activity android:name=".ConfiguracaoSalaActivity"></activity>
     </application>
 
 </manifest>
