@@ -32,7 +32,7 @@ public class criarEntrarSala extends AppCompatActivity {
         btnCriarSala.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getBaseContext(),configuracaoSalaActivity.class);
+                Intent intent = new Intent(getBaseContext(),ConfiguracaoSalaActivity.class);
                 startActivity(intent);
                 finish();
 

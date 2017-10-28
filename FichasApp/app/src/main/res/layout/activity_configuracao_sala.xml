@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ages.hacka.fichasapp.configuracaoSalaActivity"
+    tools:context="ages.hacka.fichasapp.ConfiguracaoSalaActivity"
     android:background="@drawable/pano_mesa">
 
     <TextView
@@ -13,9 +13,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="117dp"
         android:layout_marginStart="118dp"
-        android:text="Nome da Sala"
+        android:text="@string/nome_da_sala"
         android:textColor="@android:color/white"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nomeSalaInput" />
@@ -26,9 +26,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="159dp"
         android:layout_marginStart="160dp"
-        android:text="Buy-in"
+        android:text="@string/buy_in"
         android:textColor="@android:color/white"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buyInInput" />
@@ -39,9 +39,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="155dp"
         android:layout_marginStart="156dp"
-        android:text="Re-Buy"
+        android:text="@string/re_buy"
         android:textColor="@android:color/white"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reBuyInput" />
@@ -50,14 +50,15 @@
         android:id="@+id/criarSalaBtn"
         android:layout_width="192dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="46dp"
+        android:layout_marginBottom="28dp"
         android:layout_marginEnd="96dp"
         android:layout_marginStart="96dp"
-        android:layout_marginTop="50dp"
-        android:text="Criar Sala"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/borda_branca"
+        android:text="@string/criar_sala"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
@@ -68,7 +69,7 @@
         android:layout_marginEnd="196dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:text="Valor em Fichas"
+        android:text="@string/valor_em_fichas"
         android:textColor="@android:color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -78,38 +79,50 @@
 
     <EditText
         android:id="@+id/nomeSalaInput"
+        android:textColor="@android:color/white"
+        android:padding="2dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_marginEnd="84dp"
         android:layout_marginStart="85dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/borda_branca"
         android:backgroundTint="@android:color/white"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/buyInInput"
+        android:textColor="@android:color/white"
+        android:padding="2dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_marginEnd="84dp"
         android:layout_marginStart="85dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/borda_branca"
         android:backgroundTint="@android:color/white"
         android:ems="10"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nomeSala" />
 
     <EditText
         android:id="@+id/reBuyInput"
+        android:textColor="@android:color/white"
+        android:padding="2dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_marginEnd="84dp"
         android:layout_marginStart="85dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/borda_branca"
         android:backgroundTint="@android:color/white"
         android:ems="10"
         android:inputType="number"
@@ -127,6 +140,31 @@
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/valorFichas" />
+        app:layout_constraintTop_toBottomOf="@+id/valorFichas" >
+
+        <RadioButton
+            android:id="@+id/cemRadioBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@android:color/white"
+            android:text="@string/_100" />
+
+        <RadioButton
+            android:id="@+id/milRadioBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@android:color/white"
+            android:text="@string/_1_000" />
+
+        <RadioButton
+            android:id="@+id/dezMilRadioBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@android:color/white"
+            android:text="@string/_10_000" />
+    </RadioGroup>
 
 </android.support.constraint.ConstraintLayout>
