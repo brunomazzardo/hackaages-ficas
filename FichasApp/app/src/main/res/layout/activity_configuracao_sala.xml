@@ -79,6 +79,8 @@
 
     <EditText
         android:id="@+id/nomeSalaInput"
+        android:textColor="@android:color/white"
+        android:padding="2dp"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
         android:layout_marginEnd="84dp"
@@ -95,6 +97,8 @@
 
     <EditText
         android:id="@+id/buyInInput"
+        android:textColor="@android:color/white"
+        android:padding="2dp"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
         android:layout_marginEnd="84dp"
@@ -111,6 +115,8 @@
 
     <EditText
         android:id="@+id/reBuyInput"
+        android:textColor="@android:color/white"
+        android:padding="2dp"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
         android:layout_marginEnd="84dp"
