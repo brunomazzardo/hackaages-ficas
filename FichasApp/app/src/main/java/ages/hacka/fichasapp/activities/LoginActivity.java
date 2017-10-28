@@ -23,8 +23,8 @@ import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import ages.hacka.fichasapp.CriarEntrarSalaActivity;
 import ages.hacka.fichasapp.R;
-import ages.hacka.fichasapp.criarEntrarSala;
 
 public class LoginActivity extends BaseActivity implements
         View.OnClickListener {
@@ -144,7 +144,7 @@ public class LoginActivity extends BaseActivity implements
     private void updateUI(FirebaseUser user) {
         hideProgressDialog();
         if (user != null) {
-            Intent intent = new Intent(this, criarEntrarSala.class);
+            Intent intent = new Intent(this, CriarEntrarSalaActivity.class);
             startActivity(intent);
         } else {
             findViewById(R.id.button_facebook_login).setVisibility(View.VISIBLE);

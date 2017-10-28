@@ -11,18 +11,23 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.facebook.login.LoginManager;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.Picasso;
 
 
-public class CriarEntrarSalaActivity extends AppCompatActivity {
+public class CriarEntrarSalaActivity extends AppCompatActivity implements View.OnClickListener {
 
     private FirebaseUser user;
     Button btnCriarSala;
     Button btnEntrarSala;
     private ImageView ivPhoto;
+    private TextView tvLogoff;
 
     String m_Text = "Jesus";
 
@@ -34,10 +39,13 @@ public class CriarEntrarSalaActivity extends AppCompatActivity {
 
         user = FirebaseAuth.getInstance().getCurrentUser();
 
-        btnCriarSala= (Button) findViewById(R.id.criar_sala_btn);
-        btnEntrarSala= (Button) findViewById(R.id.entrar_sala_btn);
+        btnCriarSala= findViewById(R.id.criar_sala_btn);
+        btnEntrarSala= findViewById(R.id.entrar_sala_btn);
         ivPhoto = findViewById(R.id.ivUserPhoto);
+        tvLogoff = findViewById(R.id.tvLogoff);
+        findViewById(R.id.tvLogoff).setOnClickListener(this);
 
+        tvLogoff.setText(getString(R.string.logoff_text, user.getDisplayName().split(" ")));
         Picasso.with(this).load(user.getProviderData().get(1).getPhotoUrl()).into(ivPhoto);
 
         btnCriarSala.setOnClickListener(new View.OnClickListener() {
@@ -92,5 +100,20 @@ public class CriarEntrarSalaActivity extends AppCompatActivity {
 //                alertDialog.show();
             }
         });
+    }
+
+    private void signOut() {
+        FirebaseAuth.getInstance().signOut();
+        LoginManager.getInstance().logOut();
+
+        finish();
+    }
+
+    @Override
+    public void onClick(View v) {
+        int i = v.getId();
+        if (i == R.id.tvLogoff) {
+            signOut();
+        }
     }
 }
