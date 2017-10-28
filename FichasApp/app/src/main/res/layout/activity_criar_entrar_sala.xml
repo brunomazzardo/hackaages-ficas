@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ages.hacka.fichasapp.criarEntrarSala"
+    tools:context="ages.hacka.fichasapp.CriarEntrarSalaActivity"
     android:background="@drawable/fundo_opaco_ficha">
 
     <Button
