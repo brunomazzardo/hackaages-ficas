@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.AccessToken;
@@ -24,16 +23,13 @@ import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import ages.hacka.fichasapp.MainActivity;
 import ages.hacka.fichasapp.R;
+import ages.hacka.fichasapp.criarEntrarSala;
 
 public class LoginActivity extends BaseActivity implements
         View.OnClickListener {
 
     private static final String TAG = "FacebookLogin";
-
-    private TextView mStatusTextView;
-    private TextView mDetailTextView;
 
     // [START declare_auth]
     private FirebaseAuth mAuth;
@@ -47,10 +43,7 @@ public class LoginActivity extends BaseActivity implements
         FacebookSdk.setApplicationId(getResources().getString(R.string.facebook_app_id));
         FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_login);
-
-        // Views
-        mStatusTextView = findViewById(R.id.status);
-        mDetailTextView = findViewById(R.id.detail);
+        getSupportActionBar().hide();
 
         // [START initialize_auth]
         // Initialize Firebase Auth
@@ -151,16 +144,10 @@ public class LoginActivity extends BaseActivity implements
     private void updateUI(FirebaseUser user) {
         hideProgressDialog();
         if (user != null) {
-
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, criarEntrarSala.class);
             startActivity(intent);
-
         } else {
-
-            mDetailTextView.setText(null);
-
             findViewById(R.id.button_facebook_login).setVisibility(View.VISIBLE);
-
         }
     }
 

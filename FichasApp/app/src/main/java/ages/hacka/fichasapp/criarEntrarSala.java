@@ -10,15 +10,21 @@ import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.squareup.picasso.Picasso;
 
 
 public class criarEntrarSala extends AppCompatActivity {
 
+    private FirebaseUser user;
     Button btnCriarSala;
     Button btnEntrarSala;
-     String m_Text = "Jesus";
+    private ImageView ivPhoto;
 
-
+    String m_Text = "Jesus";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,22 +32,22 @@ public class criarEntrarSala extends AppCompatActivity {
         getSupportActionBar().hide();
         this.setContentView(R.layout.activity_criar_entrar_sala);
 
+        user = FirebaseAuth.getInstance().getCurrentUser();
 
         btnCriarSala= (Button) findViewById(R.id.criar_sala_btn);
         btnEntrarSala= (Button) findViewById(R.id.entrar_sala_btn);
+        ivPhoto = findViewById(R.id.ivUserPhoto);
+
+        Picasso.with(this).load(user.getProviderData().get(1).getPhotoUrl()).into(ivPhoto);
+
         btnCriarSala.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getBaseContext(),ConfiguracaoSalaActivity.class);
                 startActivity(intent);
                 finish();
-
-
-
             }
         });
-
-
 
         btnEntrarSala.setOnClickListener(new View.OnClickListener() {
             @Override
