@@ -12,6 +12,7 @@
     <string name="criar_sala">Criar Sala</string>
     <string name="bombando">Bombando</string>
     <string name="loading">Carregando...</string>
+    <string name="logoff_text">Olá %s, \nclique aqui para sair</string>
 
     <string name="facebook_app_id">832760876904716</string>
     <string name="fb_login_protocol_scheme">fb832760876904716</string>
