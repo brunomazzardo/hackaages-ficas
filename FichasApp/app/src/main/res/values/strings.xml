@@ -4,4 +4,9 @@
     <string name="criar_sala">Criar Sala</string>
     <string name="configura_es">Configurações</string>
     <string name="bombando">Bombando</string>
+    <string name="loading">Carregando...</string>
+
+    <string name="facebook_app_id">832760876904716</string>
+    <string name="fb_login_protocol_scheme">fb832760876904716</string>
+
 </resources>
