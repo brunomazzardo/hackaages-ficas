@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 
-public class criarEntrarSala extends AppCompatActivity {
+public class CriarEntrarSalaActivity extends AppCompatActivity {
 
     Button btnCriarSala;
     Button btnEntrarSala;
@@ -47,11 +47,11 @@ public class criarEntrarSala extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(criarEntrarSala.this, R.style.CustomAlertDialog));
+                AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(CriarEntrarSalaActivity.this, R.style.CustomAlertDialog));
                 builder.setTitle("Id da Sala");
 
 // Set up the input
-                final EditText input = new EditText(criarEntrarSala.this);
+                final EditText input = new EditText(CriarEntrarSalaActivity.this);
 // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
                 input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
                 builder.setView(input);
@@ -74,7 +74,7 @@ public class criarEntrarSala extends AppCompatActivity {
 
 
                 //Com uma classe que chama o xml e poe em cima
-//                AppDialog dialog = new AppDialog(criarEntrarSala.this);
+//                AppDialog dialog = new AppDialog(CriarEntrarSalaActivity.this);
 //                dialog.show();
 //
 
