@@ -3,8 +3,13 @@ package ages.hacka.fichasapp.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ImageSpan;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.facebook.AccessToken;
@@ -36,6 +41,8 @@ public class LoginActivity extends BaseActivity implements
     // [END declare_auth]
 
     private CallbackManager mCallbackManager;
+    private LoginButton loginButton;
+    private Button fbBtn;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -50,10 +57,16 @@ public class LoginActivity extends BaseActivity implements
         mAuth = FirebaseAuth.getInstance();
         // [END initialize_auth]
 
+        findViewById(R.id.fb).setOnClickListener(this);
+        fbBtn = (Button) findViewById(R.id.fb);
+        Spannable btnFbLabel = new SpannableString("   Facebook");
+        btnFbLabel.setSpan(new ImageSpan(this, R.drawable.facebook_btn, ImageSpan.ALIGN_BOTTOM), 0, 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        fbBtn.setText(btnFbLabel);
+
         // [START initialize_fblogin]
         // Initialize Facebook Login button
         mCallbackManager = CallbackManager.Factory.create();
-        LoginButton loginButton = findViewById(R.id.button_facebook_login);
+        loginButton = findViewById(R.id.button_facebook_login);
         loginButton.setReadPermissions("email", "public_profile");
         loginButton.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
             @Override
@@ -134,13 +147,6 @@ public class LoginActivity extends BaseActivity implements
     }
     // [END auth_with_facebook]
 
-    public void signOut() {
-        mAuth.signOut();
-        LoginManager.getInstance().logOut();
-
-        updateUI(null);
-    }
-
     private void updateUI(FirebaseUser user) {
         hideProgressDialog();
         if (user != null) {
@@ -153,9 +159,8 @@ public class LoginActivity extends BaseActivity implements
 
     @Override
     public void onClick(View v) {
-//        int i = v.getId();
-//        if (i == R.id.button_facebook_signout) {
-//            signOut();
-//        }
+        if (v.getId() == R.id.fb) {
+            loginButton.performClick();
+        }
     }
 }

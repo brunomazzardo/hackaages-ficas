@@ -66,7 +66,7 @@
         android:gravity="left"
         android:text="@string/logoff_text"
         android:textColor="#FFF"
-        android:textSize="11sp"
+        android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/ivUserPhoto" />
 
