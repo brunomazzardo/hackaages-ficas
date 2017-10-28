@@ -1,7 +1,19 @@
 <resources>
     <string name="app_name">FichasApp</string>
     <string name="entrar_sala">Entrar Sala</string>
-    <string name="criar_sala">Criar Sala</string>
     <string name="configura_es">Configurações</string>
+    <string name="nome_da_sala">Nome da Sala</string>
+    <string name="buy_in">Buy-in</string>
+    <string name="re_buy">Re-Buy</string>
+    <string name="valor_em_fichas">Valor em Fichas</string>
+    <string name="_100">100</string>
+    <string name="_1_000">1.000</string>
+    <string name="_10_000">10.000</string>
+    <string name="criar_sala">Criar Sala</string>
     <string name="bombando">Bombando</string>
+    <string name="loading">Carregando...</string>
+
+    <string name="facebook_app_id">832760876904716</string>
+    <string name="fb_login_protocol_scheme">fb832760876904716</string>
+
 </resources>
