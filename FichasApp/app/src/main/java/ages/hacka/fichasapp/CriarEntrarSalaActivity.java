@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import ages.hacka.fichasapp.activities.TestFirebaseActivity;
+
 
 public class CriarEntrarSalaActivity extends AppCompatActivity {
 
@@ -32,7 +34,7 @@ public class CriarEntrarSalaActivity extends AppCompatActivity {
         btnCriarSala.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getBaseContext(),ConfiguracaoSalaActivity.class);
+                Intent intent = new Intent(getBaseContext(),TestFirebaseActivity.class);
                 startActivity(intent);
                 finish();
 
