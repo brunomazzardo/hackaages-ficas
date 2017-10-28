@@ -5,6 +5,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="ages.hacka.fichasapp.criarEntrarSala"
-    android:background="@drawable/pano_mesa">
+    android:background="@drawable/fundo_opaco_ficha">
 
+    <Button
+        android:id="@+id/entrar_sala_btn"
+        style="@style/PrimaryFlatButton"
+        android:layout_width="178dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="160dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginStart="101dp"
+        android:text="@string/entrar_sala"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/criar_sala_btn"
+        style="@style/PrimaryFlatButton"
+        android:layout_width="178dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="52dp"
+
+        android:layout_marginEnd="100dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="198dp"
+        android:text="@string/criar_sala"
+        app:layout_constraintBottom_toTopOf="@+id/entrar_sala_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
