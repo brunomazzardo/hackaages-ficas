@@ -2,6 +2,7 @@ package ages.hacka.fichasapp.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by mazzardo on 28/10/17.
@@ -16,7 +17,7 @@ public class Mao implements Serializable {
     public Mao(){
 
     }
-    public Mao(String vencedor, int mainPot, int sidePot, ArrayList<Jogada> jogadas) {
+    public Mao(String vencedor, int mainPot, int sidePot, List<Jogada> jogadas) {
         this.vencedor = vencedor;
         this.mainPot = mainPot;
         this.sidePot = sidePot;
@@ -48,13 +49,13 @@ public class Mao implements Serializable {
         this.sidePot = sidePot;
     }
 
-    public ArrayList<Jogada> getJogadas() {
+    public List<Jogada> getJogadas() {
         return jogadas;
     }
 
-    public void setJogadas(ArrayList<Jogada> jogadas) {
+    public void setJogadas(List<Jogada> jogadas) {
         this.jogadas = jogadas;
     }
 
-    ArrayList<Jogada> jogadas;
+    List<Jogada> jogadas;
 }

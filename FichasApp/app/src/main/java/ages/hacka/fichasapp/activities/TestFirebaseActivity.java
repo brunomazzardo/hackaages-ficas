@@ -47,6 +47,7 @@ public class TestFirebaseActivity extends AppCompatActivity {
         Jogada jogada = new Jogada("1",aposta,false);
 
         ArrayList<Jogada> jogadas = new ArrayList<>();
+
         Jogador jogador = new Jogador(10,"1",aposta,true);
         jogadors.add(jogador);
 
