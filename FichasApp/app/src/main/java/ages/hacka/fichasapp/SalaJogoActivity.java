@@ -199,6 +199,9 @@ public class SalaJogoActivity extends AppCompatActivity {
                     int valorAtual = Integer.parseInt(mesaMenu.getText().toString());
                     mesaMenu.setText("" + (valorAtual + jogada.calculaFicha()));
                 }else{
+                    if(jogada.getId()==null){
+                        mesaMenu.setText("");
+                    }
 
                 }
             }
