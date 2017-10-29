@@ -69,12 +69,14 @@ public class SalaJogoActivity extends AppCompatActivity {
         fichaSet.add(ficha100);
 
 
-        ficha10Imgg.setOnClickListener(new View.OnClickListener() {
+        apostarBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Aposta aposta = new Aposta(fichaSet);
                 Jogada jogada = new Jogada(user.getUid() ,aposta,false);
                 AdicionaAposta.adiciona(jogada);
+
+
 
             }
 
