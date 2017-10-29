@@ -20,7 +20,20 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.Picasso;
 
+import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.List;
+
 import ages.hacka.fichasapp.activities.TestFirebaseActivity;
+import ages.hacka.fichasapp.model.Aposta;
+import ages.hacka.fichasapp.model.Ficha;
+import ages.hacka.fichasapp.model.Jogada;
+import ages.hacka.fichasapp.model.Jogador;
+import ages.hacka.fichasapp.model.Jogo;
+import ages.hacka.fichasapp.model.Mao;
+import ages.hacka.fichasapp.model.Sala;
+import ages.hacka.fichasapp.util.CriaSala;
+import ages.hacka.fichasapp.util.EntraSala;
 
 
 public class CriarEntrarSalaActivity extends AppCompatActivity implements View.OnClickListener {
@@ -62,9 +75,48 @@ public class CriarEntrarSalaActivity extends AppCompatActivity implements View.O
         btnEntrarSala.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getBaseContext(),TestFirebaseActivity.class);
-                startActivity(intent);
-                finish();
+                CriaSala criaSala = new CriaSala();
+
+                ArrayList<Sala> salas = new ArrayList<>();
+                List<Jogador> jogadors= new ArrayList<>();
+                Ficha ficha10= new Ficha(10);
+                Ficha ficha20= new Ficha(20);
+                Ficha ficha50= new Ficha(50);
+                Ficha ficha100= new Ficha(100);
+                List<Ficha> fichaSet= new ArrayList<>();
+                fichaSet.add(ficha10);
+                fichaSet.add(ficha20);
+                fichaSet.add(ficha50);
+                fichaSet.add(ficha100);
+                Aposta aposta = new Aposta(fichaSet);
+                Jogada jogada = new Jogada("1",aposta,false);
+
+                ArrayList<Jogada> jogadas = new ArrayList<>();
+                Jogador jogador = new Jogador(10,"1",aposta,true);
+                jogadors.add(jogador);
+
+                jogadas.add(jogada);
+                Mao mao = new Mao("1",10,0,jogadas);
+
+
+                Jogo jogo = new Jogo(jogadors,mao,10,5,1,10);
+
+
+                List<Jogo> jogos = new ArrayList<>();
+                jogos.add(jogo);
+
+                Sala sala = new Sala("11",jogos);
+
+                salas.add(sala);
+                //criaSala.cria(jogador,sala);
+                EntraSala entraSala = new EntraSala();
+                jogador.setId("bucetinha");
+                entraSala.entraSala("61cb6fa63",jogador);
+
+
+//                Intent intent = new Intent(getBaseContext(),TestFirebaseActivity.class);
+//                startActivity(intent);
+//                finish();
 
 
                 //Alerter funcionando

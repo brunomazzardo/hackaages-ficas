@@ -11,9 +11,15 @@ public class Jogador implements Serializable {
     int pot;
     String id;
 Aposta aposta;
+private String email;
 
+    public String getEmail() {
+        return email;
+    }
 
-
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     Boolean admin;
 
