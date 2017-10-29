@@ -75,11 +75,27 @@ public class SalaJogoActivity extends AppCompatActivity {
                 Aposta aposta = new Aposta(fichaSet);
                 Jogada jogada = new Jogada(user.getUid() ,aposta,false);
                 AdicionaAposta.adiciona(jogada);
-
-
-
             }
 
+        });
+
+        cancelarBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                for(Ficha f : fichaSet){
+                    int apostaInt = Integer.parseInt(aposta.getText().toString());
+                    int soma = apostaInt - (f.getValor()*f.getQuantidade());
+                    String resultado = Integer.toString(soma);
+                    aposta.setText(resultado);
+
+                    int totalInt = Integer.parseInt(total.getText().toString());
+                    int subtracao = totalInt + (f.getValor()*f.getQuantidade());;
+                    String result = Integer.toString(subtracao);
+                    total.setText(result);
+
+                    f.setQuantidade(0);
+                }
+            }
         });
 
         ficha10Imgg.setOnClickListener(new View.OnClickListener() {
