@@ -1,27 +1,28 @@
-        package ages.hacka.fichasapp;
+package ages.hacka.fichasapp;
 
-        import android.support.v7.app.AppCompatActivity;
-        import android.os.Bundle;
-        import android.view.View;
-        import android.widget.Button;
-        import android.widget.ImageView;
-        import android.widget.TextView;
-        import android.widget.Toast;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
-        import com.google.firebase.auth.FirebaseAuth;
-        import com.google.firebase.auth.FirebaseUser;
-        import com.google.firebase.database.DataSnapshot;
-        import com.google.firebase.database.DatabaseError;
-        import com.google.firebase.database.DatabaseReference;
-        import com.google.firebase.database.FirebaseDatabase;
-        import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-        import java.util.ArrayList;
+import java.util.ArrayList;
+import java.util.List;
 
-        import ages.hacka.fichasapp.model.Aposta;
-        import ages.hacka.fichasapp.model.Ficha;
-        import ages.hacka.fichasapp.model.Jogada;
-        import ages.hacka.fichasapp.util.AdicionaAposta;
+import ages.hacka.fichasapp.model.Aposta;
+import ages.hacka.fichasapp.model.Ficha;
+import ages.hacka.fichasapp.model.Jogada;
+import ages.hacka.fichasapp.util.AdicionaAposta;
 
 public class SalaJogoActivity extends AppCompatActivity {
 
@@ -87,6 +88,19 @@ public class SalaJogoActivity extends AppCompatActivity {
 
                     f.setQuantidade(0);
                 }
+                Ficha ficha10= new Ficha(10);
+                Ficha ficha20= new Ficha(20);
+                Ficha ficha50= new Ficha(50);
+                Ficha ficha100= new Ficha(100);
+                List<Ficha> fichaSet= new ArrayList<>();
+                fichaSet.add(ficha10);
+                fichaSet.add(ficha20);
+                fichaSet.add(ficha50);
+                fichaSet.add(ficha100);
+                Aposta aposta = new Aposta(fichaSet);
+                Jogada jogada = new Jogada();
+                jogada.setAposta(aposta);
+                AdicionaAposta.adiciona(jogada);
 
             }
         });
@@ -175,13 +189,18 @@ public class SalaJogoActivity extends AppCompatActivity {
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Jogada jogada =  dataSnapshot.getValue(Jogada.class);
-                String nLog = (log.getText().toString()) + "\n" + jogada.toString();
+                String nLog="";
 
-                log.setText(nLog);
-                int valorAtual=Integer.parseInt(mesaMenu.getText().toString());
+                Jogada jogada = dataSnapshot.getValue(Jogada.class);
 
-                mesaMenu.setText(""+(valorAtual+jogada.calculaFicha()));
+                if (jogada.calculaFicha() != 0){
+                    nLog  = (log.getText().toString()) + "\n" + jogada.toString();
+                    log.setText(nLog);
+                    int valorAtual = Integer.parseInt(mesaMenu.getText().toString());
+                    mesaMenu.setText("" + (valorAtual + jogada.calculaFicha()));
+                }else{
+
+                }
             }
 
             @Override
