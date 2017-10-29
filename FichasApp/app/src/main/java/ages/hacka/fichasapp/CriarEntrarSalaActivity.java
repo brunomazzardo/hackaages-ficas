@@ -2,6 +2,7 @@ package ages.hacka.fichasapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -9,10 +10,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import ages.hacka.fichasapp.model.Sala;
@@ -43,6 +50,16 @@ public class CriarEntrarSalaActivity extends AppCompatActivity implements View.O
         tvLogoff = findViewById(R.id.tvLogoff);
         findViewById(R.id.tvLogoff).setOnClickListener(this);
 
+//        btnDesculpa.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+//                sharingIntent.setType("text/plain");
+//                sharingIntent.putExtra(Intent.EXTRA_TEXT, "F65Fhsda");
+//                startActivity(Intent.createChooser(sharingIntent, "Compartilhar via"));
+//            }
+//        });
+
         tvLogoff.setText(getString(R.string.logoff_text, user.getDisplayName().split(" ")));
         Picasso.with(this).load(user.getProviderData().get(1).getPhotoUrl()).into(ivPhoto);
 
@@ -70,17 +87,45 @@ public class CriarEntrarSalaActivity extends AppCompatActivity implements View.O
 
                 btnCodigoSala.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View view) {
+                    public void onClick(final View view) {
 //                        dialog.dismiss();
-                        Intent intent = new Intent(getBaseContext(), SalaJogoActivity.class);
 
-                        String codigo = etCodigoSala.getText().toString();
-                        Sala sala = BuscaSala.busca(codigo);
+                        final Intent intent = new Intent(getBaseContext(), SalaJogoActivity.class);
 
-                        if(sala != null){
-                            intent.putExtra("sala", sala);
-                            startActivity(intent);
-                        }
+                        final String codigo = etCodigoSala.getText().toString();
+                        final Sala[] sala = {null};
+
+                        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("salas");
+
+                        ref.addListenerForSingleValueEvent(
+                                new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        boolean temSala = false;
+                                        for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                                            if (postSnapshot.getValue(Sala.class).getId().equals(codigo)) {
+                                                temSala = true;
+                                                sala[0] = postSnapshot.getValue(Sala.class);
+                                                intent.putExtra("sala", sala[0]);
+                                                startActivity(intent);
+                                            }
+                                        }
+                                        if(!temSala){
+                                            Snackbar snackbar = Snackbar.make(
+                                                    view,
+                                                    "Lobby não encontrado",
+                                                    Snackbar.LENGTH_SHORT
+                                            );
+                                            snackbar.show();
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+                                        //handle databaseError
+
+                                    }
+                                });
                     }
                 });
             }
