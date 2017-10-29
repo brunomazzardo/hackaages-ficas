@@ -75,6 +75,10 @@ public class SalaJogoActivity extends AppCompatActivity {
                 Aposta aposta = new Aposta(fichaSet);
                 Jogada jogada = new Jogada(user.getUid() ,aposta, user.getDisplayName(), false);
                 AdicionaAposta.adiciona(jogada);
+
+                for(Ficha f : fichaSet) {
+                    f.setQuantidade(0);
+                }
             }
 
         });
