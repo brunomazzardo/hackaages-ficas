@@ -18,6 +18,8 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".CriarEntrarSalaActivity" />
         <activity android:name=".ConfiguracaoSalaActivity" />
+        <activity android:name=".SalaJogoActivity" android:screenOrientation="landscape">
+        </activity>
         <activity android:name=".activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
