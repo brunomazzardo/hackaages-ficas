@@ -20,6 +20,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.Picasso;
 
+import ages.hacka.fichasapp.activities.TestFirebaseActivity;
+
 
 public class CriarEntrarSalaActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -51,7 +53,7 @@ public class CriarEntrarSalaActivity extends AppCompatActivity implements View.O
         btnCriarSala.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getBaseContext(),ConfiguracaoSalaActivity.class);
+                Intent intent = new Intent(getBaseContext(),TestFirebaseActivity.class);
                 startActivity(intent);
                 finish();
             }
