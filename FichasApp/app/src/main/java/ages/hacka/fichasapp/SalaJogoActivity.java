@@ -152,7 +152,7 @@ public class SalaJogoActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Jogada jogada =  dataSnapshot.getValue(Jogada.class);
-                String nLog = (log.getText().toString()) + "\n" + jogada.getNomeJogador() + ": " + jogada.getAposta().toString();
+                String nLog = (log.getText().toString()) + "\n" + jogada.toString();
                 log.setText(nLog);
             }
 
