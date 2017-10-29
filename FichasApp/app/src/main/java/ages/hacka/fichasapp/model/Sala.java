@@ -3,6 +3,8 @@ package ages.hacka.fichasapp.model;
 import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Created by mazzardo on 28/10/17.
@@ -11,13 +13,20 @@ import java.util.ArrayList;
 public class Sala  implements Serializable {
     String id ;
 
-    ArrayList<Jogo> jogos;
+    List<Jogo> jogos;
 
-    public Sala(String id, ArrayList<Jogo> jogos) {
+    public Sala(List<Jogo> jogos,String id){
+        this.id = id;
+        this.jogos = jogos;
+    }
+    public Sala(String id, List<Jogo> jogos) {
         this.id = id;
         this.jogos = jogos;
     }
 
+    public Sala(){
+
+    }
     public String getId() {
         return id;
     }
@@ -26,14 +35,14 @@ public class Sala  implements Serializable {
         this.id = id;
     }
 
-    public ArrayList<Jogo> getJogos() {
+
+    public List<Jogo> getJogos() {
         return jogos;
     }
 
-    public void setJogos(ArrayList<Jogo> jogos) {
+    public void setJogos(List<Jogo> jogos) {
         this.jogos = jogos;
     }
-
 }
 
 

@@ -13,6 +13,9 @@ public class Mao implements Serializable {
     int mainPot;
     int sidePot;
 
+    public Mao(){
+
+    }
     public Mao(String vencedor, int mainPot, int sidePot, ArrayList<Jogada> jogadas) {
         this.vencedor = vencedor;
         this.mainPot = mainPot;

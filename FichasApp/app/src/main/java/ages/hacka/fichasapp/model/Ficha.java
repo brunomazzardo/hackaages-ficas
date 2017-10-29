@@ -6,10 +6,14 @@ import java.io.Serializable;
  * Created by mazzardo on 28/10/17.
  */
 
-public class Fichas  implements Serializable {
+public class Ficha implements Serializable {
     private int valor ;
     private int quantidade;
-   public  Fichas(int valor){
+
+    public Ficha(){
+
+    }
+   public Ficha(int valor){
          this.valor=valor;
     }
 
@@ -31,7 +35,7 @@ public class Fichas  implements Serializable {
 
     @Override
     public String toString() {
-        return "Fichas{" +
+        return "Ficha{" +
                 "valor=" + valor +
                 ", quantidade=" + quantidade +
                 '}';

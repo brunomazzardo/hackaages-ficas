@@ -24,6 +24,9 @@ Aposta aposta;
         this.admin = admin;
     }
 
+    public Jogador(){
+
+    }
     public Aposta getAposta() {
         return aposta;
     }

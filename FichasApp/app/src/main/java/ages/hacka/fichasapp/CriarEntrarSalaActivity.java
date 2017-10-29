@@ -53,7 +53,7 @@ public class CriarEntrarSalaActivity extends AppCompatActivity implements View.O
         btnCriarSala.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getBaseContext(),TestFirebaseActivity.class);
+                Intent intent = new Intent(getBaseContext(),ConfiguracaoSalaActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -62,31 +62,37 @@ public class CriarEntrarSalaActivity extends AppCompatActivity implements View.O
         btnEntrarSala.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(getBaseContext(),TestFirebaseActivity.class);
+                startActivity(intent);
+                finish();
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(CriarEntrarSalaActivity.this, R.style.CustomAlertDialog));
-                builder.setTitle("Id da Sala");
 
-// Set up the input
-                final EditText input = new EditText(CriarEntrarSalaActivity.this);
-// Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
-                input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                builder.setView(input);
+                //Alerter funcionando
 
-// Set up the buttons
-                builder.setPositiveButton("Entrar", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                       m_Text = input.getText().toString();
-                    }
-                });
-                builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
-
-                builder.show();
+//                AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(CriarEntrarSalaActivity.this, R.style.CustomAlertDialog));
+//                builder.setTitle("Id da Sala");
+//
+//// Set up the input
+//                final EditText input = new EditText(CriarEntrarSalaActivity.this);
+//// Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+//                input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+//                builder.setView(input);
+//
+//// Set up the buttons
+//                builder.setPositiveButton("Entrar", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                       m_Text = input.getText().toString();
+//                    }
+//                });
+//                builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        dialog.cancel();
+//                    }
+//                });
+//
+//                builder.show();
 
 
                 //Com uma classe que chama o xml e poe em cima

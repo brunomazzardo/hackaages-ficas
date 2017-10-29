@@ -19,6 +19,10 @@ public class Jogada  implements Serializable {
         this.out = out;
     }
 
+    public Jogada(){
+
+    }
+
     public String getId() {
 
         return id;
@@ -44,13 +48,7 @@ public class Jogada  implements Serializable {
         this.out = out;
     }
 
-    public Jogada() {
 
-    }
-
-    public int valorAposta(){
-        return aposta.valorAposta();
-    }
 
 
 

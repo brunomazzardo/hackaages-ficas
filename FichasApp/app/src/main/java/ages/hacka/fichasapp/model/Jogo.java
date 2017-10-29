@@ -2,32 +2,31 @@ package ages.hacka.fichasapp.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Created by mazzardo on 28/10/17.
  */
 
 public class Jogo  implements Serializable {
-    ArrayList<Jogador> jogadores;
+    List<Jogador> jogadores;
     Mao mao ;
     int buyIn;
     int reBuy;
     int multiplicador;
     int valor;
 
-    public Jogo(ArrayList<Jogador> jogadores, Mao mao, int multiplicador) {
-        this.jogadores = jogadores;
-        this.mao = mao;
-        this.multiplicador = multiplicador;
-    }
-
-    public Jogo(ArrayList<Jogador> jogadores, Mao mao, int buyIn, int reBuy, int multiplicador, int valor) {
+    public Jogo(List<Jogador> jogadores, Mao mao, int buyIn, int reBuy, int multiplicador, int valor) {
         this.jogadores = jogadores;
         this.mao = mao;
         this.buyIn = buyIn;
         this.reBuy = reBuy;
         this.multiplicador = multiplicador;
         this.valor = valor;
+    }
+    public Jogo(){
+
     }
 
     public int getBuyIn() {
@@ -55,12 +54,11 @@ public class Jogo  implements Serializable {
         this.valor = valor;
     }
 
-    public ArrayList<Jogador> getJogadores() {
-
+    public List<Jogador> getJogadores() {
         return jogadores;
     }
 
-    public void setJogadores(ArrayList<Jogador> jogadores) {
+    public void setJogadores(List<Jogador> jogadores) {
         this.jogadores = jogadores;
     }
 
