@@ -52,12 +52,15 @@ public class Jogada  implements Serializable {
 
     @Override
     public String toString() {
-        return "Jogada{" +
-                "id='" + id + '\'' +
-                ", aposta=" + aposta +
-                ", nomeJogador='" + nomeJogador + '\'' +
-                ", out=" + out +
-                '}';
+        return "O jogador "+ nomeJogador +" apostou " + calculaFicha() + " fichas";
+    }
+
+    private int calculaFicha() {
+        int valor=0;
+        for (Ficha f: aposta.getFichas())
+            valor+= (f.getValor()* f.getQuantidade());
+
+        return valor;
     }
 
     public String getNomeJogador() {
