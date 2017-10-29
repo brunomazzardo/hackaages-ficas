@@ -56,24 +56,23 @@
         android:id="@+id/criarSalaBtn"
         android:layout_width="192dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="28dp"
         android:layout_marginEnd="96dp"
         android:layout_marginStart="96dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/borda_branca"
+        android:fontFamily="@font/rotis_semi_serif"
         android:text="@string/criar_sala"
         android:textAllCaps="false"
-        android:fontFamily="@font/rotis_semi_serif"
-        android:textSize="20dp"
         android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
     <TextView
         android:id="@+id/valorFichas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="24dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
@@ -81,7 +80,6 @@
         android:text="@string/valor_em_fichas"
         android:textColor="@android:color/white"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reBuyInput" />
@@ -140,13 +138,14 @@
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_height="68dp"
         android:layout_marginEnd="32dp"
         android:layout_marginStart="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/criarSalaBtn"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/valorFichas">
 
         <RadioButton
             android:id="@+id/cemRadioBtn"
@@ -156,13 +155,13 @@
             android:layout_weight="1"
             android:button="@null"
             android:checked="true"
-            android:fontFamily="@font/rotis_semi_serif"
-            android:textSize="23dp"
             android:drawableLeft="@drawable/custom_btn_radio"
-            android:drawablePadding="10dp"
+            android:drawablePadding="5dp"
             android:duplicateParentState="false"
+            android:fontFamily="@font/rotis_semi_serif"
             android:text="@string/_100"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textSize="18dp" />
 
         <RadioButton
             android:id="@+id/milRadioBtn"
@@ -172,12 +171,12 @@
             android:layout_weight="1"
             android:button="@null"
             android:checked="false"
-            android:fontFamily="@font/rotis_semi_serif"
-            android:textSize="23dp"
             android:drawableLeft="@drawable/custom_btn_radio"
-            android:drawablePadding="10dp"
+            android:drawablePadding="5dp"
+            android:fontFamily="@font/rotis_semi_serif"
             android:text="@string/_1_000"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textSize="18dp" />
 
         <RadioButton
             android:id="@+id/dezMilRadioBtn"
@@ -185,12 +184,12 @@
             android:layout_height="60dp"
             android:layout_weight="1"
             android:button="@null"
-            android:fontFamily="@font/rotis_semi_serif"
-            android:textSize="23dp"
             android:drawableLeft="@drawable/custom_btn_radio"
-            android:drawablePadding="10dp"
+            android:drawablePadding="5dp"
+            android:fontFamily="@font/rotis_semi_serif"
             android:text="@string/_10_000"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textSize="18dp" />
     </RadioGroup>
 
 </android.support.constraint.ConstraintLayout>
