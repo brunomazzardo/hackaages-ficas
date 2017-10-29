@@ -50,16 +50,6 @@ public class CriarEntrarSalaActivity extends AppCompatActivity implements View.O
         tvLogoff = findViewById(R.id.tvLogoff);
         findViewById(R.id.tvLogoff).setOnClickListener(this);
 
-//        btnDesculpa.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
-//                sharingIntent.setType("text/plain");
-//                sharingIntent.putExtra(Intent.EXTRA_TEXT, "F65Fhsda");
-//                startActivity(Intent.createChooser(sharingIntent, "Compartilhar via"));
-//            }
-//        });
-
         tvLogoff.setText(getString(R.string.logoff_text, user.getDisplayName().split(" ")));
         Picasso.with(this).load(user.getProviderData().get(1).getPhotoUrl()).into(ivPhoto);
 

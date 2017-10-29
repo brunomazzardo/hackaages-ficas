@@ -1,9 +1,12 @@
 package ages.hacka.fichasapp;
 
+import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -71,6 +74,31 @@ public class SalaJogoActivity extends AppCompatActivity {
         fichaSet.add(ficha20);
         fichaSet.add(ficha50);
         fichaSet.add(ficha100);
+
+        //Chamada da tela de compartilhar
+        AlertDialog.Builder builder = new AlertDialog.Builder(SalaJogoActivity.this, R.style.CustomAlertDialog);
+        View view1 = getLayoutInflater().inflate(R.layout.popup_compartilhar_sala, null);
+        builder.setView(view1);
+        final AlertDialog dialog = builder.create();
+        dialog.show();
+
+        TextView tvNomeAdmin = view1.findViewById(R.id.tvNomeAdmin);
+        EditText etCodigoCompartilhar = view1.findViewById(R.id.etCodigoCompartilhar);
+        Button btnCompartilhar = view1.findViewById(R.id.btnCompartilhar);
+
+        tvNomeAdmin.setText(getString(R.string.bem_vindo, user.getDisplayName().split(" ")));
+        etCodigoCompartilhar.setText("61cb6fa63");
+        etCodigoCompartilhar.setEnabled(false);
+
+        btnCompartilhar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+                sharingIntent.setType("text/plain");
+                sharingIntent.putExtra(Intent.EXTRA_TEXT, "Código da partida de poker: 61cb6fa63");
+                startActivity(Intent.createChooser(sharingIntent, "Compartilhar via"));
+            }
+        });
 
 
         ganheiBtn.setOnClickListener(new View.OnClickListener() {
