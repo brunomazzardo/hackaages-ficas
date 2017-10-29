@@ -88,7 +88,7 @@ public class CriarEntrarSalaActivity extends AppCompatActivity implements View.O
                 btnCodigoSala.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(final View view) {
-//                        dialog.dismiss();
+//                   dialog.dismiss();
 
                         final Intent intent = new Intent(getBaseContext(), SalaJogoActivity.class);
 
