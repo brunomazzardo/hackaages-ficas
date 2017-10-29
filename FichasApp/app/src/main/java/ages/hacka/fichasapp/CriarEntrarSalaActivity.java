@@ -2,6 +2,7 @@ package ages.hacka.fichasapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -49,6 +50,16 @@ public class CriarEntrarSalaActivity extends AppCompatActivity implements View.O
         tvLogoff = findViewById(R.id.tvLogoff);
         findViewById(R.id.tvLogoff).setOnClickListener(this);
 
+//        btnDesculpa.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+//                sharingIntent.setType("text/plain");
+//                sharingIntent.putExtra(Intent.EXTRA_TEXT, "F65Fhsda");
+//                startActivity(Intent.createChooser(sharingIntent, "Compartilhar via"));
+//            }
+//        });
+
         tvLogoff.setText(getString(R.string.logoff_text, user.getDisplayName().split(" ")));
         Picasso.with(this).load(user.getProviderData().get(1).getPhotoUrl()).into(ivPhoto);
 
@@ -76,8 +87,9 @@ public class CriarEntrarSalaActivity extends AppCompatActivity implements View.O
 
                 btnCodigoSala.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View view) {
+                    public void onClick(final View view) {
 //                        dialog.dismiss();
+
                         final Intent intent = new Intent(getBaseContext(), SalaJogoActivity.class);
 
                         final String codigo = etCodigoSala.getText().toString();
@@ -99,7 +111,12 @@ public class CriarEntrarSalaActivity extends AppCompatActivity implements View.O
                                             }
                                         }
                                         if(!temSala){
-                                            Toast.makeText(getBaseContext(), "Lobby não encontrado", Toast.LENGTH_LONG).show();
+                                            Snackbar snackbar = Snackbar.make(
+                                                    view,
+                                                    "Lobby não encontrado",
+                                                    Snackbar.LENGTH_SHORT
+                                            );
+                                            snackbar.show();
                                         }
                                     }
 

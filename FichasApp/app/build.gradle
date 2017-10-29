@@ -34,11 +34,13 @@ dependencies {
     compile 'com.facebook.android:facebook-login:[4,5)'
 
     compile 'uk.co.chrisjenx:calligraphy:2.3.0'
+    compile 'com.android.support:design:22.2.0'
 
     //Picasso
     compile 'com.squareup.picasso:picasso:2.5.2'
 
     //Imageview com bordas arredondadas
     compile 'de.hdodenhof:circleimageview:2.1.0'
+    implementation 'com.android.support:design:27.0.0'
 }
 apply plugin: 'com.google.gms.google-services'
