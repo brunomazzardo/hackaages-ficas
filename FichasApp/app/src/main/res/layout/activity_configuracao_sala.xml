@@ -11,40 +11,43 @@
         android:id="@+id/nomeSala"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="117dp"
-        android:layout_marginStart="118dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
         android:text="@string/nome_da_sala"
         android:textColor="@android:color/white"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/nomeSalaInput"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nomeSalaInput" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/buyIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="159dp"
-        android:layout_marginStart="160dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
         android:text="@string/buy_in"
         android:textColor="@android:color/white"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buyInInput"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buyInInput" />
+        app:layout_constraintTop_toBottomOf="@+id/nomeSala" />
 
     <TextView
         android:id="@+id/reBuy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="155dp"
-        android:layout_marginStart="156dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
         android:text="@string/re_buy"
         android:textColor="@android:color/white"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/reBuyInput"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reBuyInput" />
+        app:layout_constraintTop_toBottomOf="@+id/buyIn" />
 
     <Button
         android:id="@+id/criarSalaBtn"
@@ -64,82 +67,73 @@
         android:id="@+id/valorFichas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="24dp"
         android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
         android:text="@string/valor_em_fichas"
         android:textColor="@android:color/white"
         android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reBuy" />
+        app:layout_constraintTop_toBottomOf="@+id/reBuyInput" />
 
     <EditText
         android:id="@+id/nomeSalaInput"
-        android:textColor="@android:color/white"
-        android:padding="2dp"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
-        android:layout_marginEnd="84dp"
-        android:layout_marginStart="85dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/borda_branca"
         android:backgroundTint="@android:color/white"
         android:ems="10"
         android:inputType="textPersonName"
+        android:padding="2dp"
+        android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/buyInInput"
-        android:textColor="@android:color/white"
-        android:padding="2dp"
-        android:layout_width="wrap_content"
+        android:layout_width="216dp"
         android:layout_height="45dp"
-        android:layout_marginEnd="84dp"
-        android:layout_marginStart="85dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/borda_branca"
         android:backgroundTint="@android:color/white"
         android:ems="10"
         android:inputType="number"
+        android:padding="2dp"
+        android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nomeSala" />
+        app:layout_constraintTop_toBottomOf="@+id/nomeSalaInput" />
 
     <EditText
         android:id="@+id/reBuyInput"
-        android:textColor="@android:color/white"
-        android:padding="2dp"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
-        android:layout_marginEnd="84dp"
-        android:layout_marginStart="85dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/borda_branca"
         android:backgroundTint="@android:color/white"
         android:ems="10"
         android:inputType="number"
+        android:padding="2dp"
+        android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buyIn" />
+        app:layout_constraintTop_toBottomOf="@+id/buyInInput" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="0dp"
-        android:layout_height="143dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="32dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@+id/criarSalaBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/valorFichas">
+        app:layout_constraintStart_toStartOf="parent">
 
         <RadioButton
             android:id="@+id/cemRadioBtn"
@@ -149,8 +143,8 @@
             android:layout_weight="1"
             android:button="@null"
             android:checked="true"
-            android:drawablePadding="10dp"
             android:drawableLeft="@drawable/custom_btn_radio"
+            android:drawablePadding="10dp"
             android:duplicateParentState="false"
             android:text="@string/_100"
             android:textColor="@android:color/white" />
@@ -163,8 +157,8 @@
             android:layout_weight="1"
             android:button="@null"
             android:checked="false"
-            android:drawablePadding="10dp"
             android:drawableLeft="@drawable/custom_btn_radio"
+            android:drawablePadding="10dp"
             android:text="@string/_1_000"
             android:textColor="@android:color/white" />
 
@@ -174,8 +168,8 @@
             android:layout_height="60dp"
             android:layout_weight="1"
             android:button="@null"
-            android:drawablePadding="10dp"
             android:drawableLeft="@drawable/custom_btn_radio"
+            android:drawablePadding="10dp"
             android:text="@string/_10_000"
             android:textColor="@android:color/white" />
     </RadioGroup>
