@@ -61,7 +61,7 @@ public class SalaJogoActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                Toast.makeText(getBaseContext(),"SHOW",Toast.LENGTH_LONG);
+                Toast.makeText(getBaseContext(),"SHOW",Toast.LENGTH_LONG).show();
             }
 
             @Override
