@@ -23,7 +23,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/borda_preta_log"
-            android:orientation="vertical" />
+            android:orientation="vertical" >
+
+        </LinearLayout>
 
     </ScrollView>
 
@@ -72,16 +74,14 @@
     <Button
         android:id="@+id/apostarBtn"
         android:layout_width="140dp"
-        android:layout_height="70dp"
-        android:layout_marginBottom="16dp"
+        android:layout_height="53dp"
         android:layout_marginTop="1dp"
         android:background="#005b01"
         android:text="Apostar"
         android:textColor="#fff"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
     <TextView
         android:id="@+id/totalNum"
@@ -240,4 +240,19 @@
         app:layout_constraintEnd_toStartOf="@+id/ficha20Num"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ficha10Img" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="139dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="8dp"
+        android:background="#05a815"
+        android:text="Ganhei!!"
+        android:textColor="#fff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.952"
+        app:layout_constraintStart_toEndOf="@+id/totalTxt"
+        app:layout_constraintTop_toBottomOf="@+id/apostarBtn" />
+
 </android.support.constraint.ConstraintLayout>
