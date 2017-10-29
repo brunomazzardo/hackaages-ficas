@@ -34,6 +34,7 @@ public class SalaJogoActivity extends AppCompatActivity {
     FirebaseUser user;
     Button apostarBtn;
     Button cancelarBtn;
+    Button ganheiBtn;
 
 
     @Override
@@ -96,6 +97,7 @@ public class SalaJogoActivity extends AppCompatActivity {
         ficha10Imgg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (Integer.parseInt(total.getText().toString()) < 10) return;
                 aposter(10);
                 ficha10.setQuantidade(ficha10.getQuantidade()+1);
             }
@@ -105,6 +107,7 @@ public class SalaJogoActivity extends AppCompatActivity {
         ficha20Imgg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (Integer.parseInt(total.getText().toString()) < 20) return;
                 aposter(20);
                 ficha20.setQuantidade(ficha20.getQuantidade()+1);
             }
@@ -114,6 +117,7 @@ public class SalaJogoActivity extends AppCompatActivity {
         ficha50Imgg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (Integer.parseInt(total.getText().toString()) < 50) return;
                 aposter(50);
                 ficha50.setQuantidade(ficha50.getQuantidade()+1);
             }
@@ -123,6 +127,7 @@ public class SalaJogoActivity extends AppCompatActivity {
         ficha100Imgg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (Integer.parseInt(total.getText().toString()) < 100) return;
                 aposter(100);
                 ficha100.setQuantidade(ficha100.getQuantidade()+1);
             }

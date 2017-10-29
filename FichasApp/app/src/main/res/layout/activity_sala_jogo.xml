@@ -84,7 +84,7 @@
         android:background="#005b01"
         android:text="Apostar"
         android:textColor="#fff"
-        app:layout_constraintBottom_toTopOf="@+id/button5"
+        app:layout_constraintBottom_toTopOf="@+id/ganheiBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
@@ -94,9 +94,9 @@
         android:layout_height="42dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="15"
-        android:textColor="#fff"
+        android:text="1000"
         android:textAlignment="center"
+        android:textColor="#fff"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/totalTxt"
         app:layout_constraintEnd_toStartOf="@+id/apostarBtn"
@@ -247,7 +247,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ficha10Img" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/ganheiBtn"
         android:layout_width="139dp"
         android:layout_height="36dp"
         android:layout_marginStart="8dp"
