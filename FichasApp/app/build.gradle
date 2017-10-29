@@ -40,5 +40,6 @@ dependencies {
 
     //Imageview com bordas arredondadas
     compile 'de.hdodenhof:circleimageview:2.1.0'
+    implementation 'com.android.support:design:27.0.0'
 }
 apply plugin: 'com.google.gms.google-services'
