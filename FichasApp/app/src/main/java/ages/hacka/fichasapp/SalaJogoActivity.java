@@ -52,6 +52,7 @@ public class SalaJogoActivity extends AppCompatActivity {
         ficha100Imgg = (ImageView) findViewById(R.id.ficha100Img);
         aposta = findViewById(R.id.apostaNum);
         total = findViewById(R.id.totalNum);
+        ganheiBtn =findViewById(R.id.ganheiBtn);
         user = FirebaseAuth.getInstance().getCurrentUser();
         apostarBtn = findViewById(R.id.apostarBtn);
         cancelarBtn = findViewById(R.id.cancelarBtn);
@@ -71,16 +72,37 @@ public class SalaJogoActivity extends AppCompatActivity {
         fichaSet.add(ficha100);
 
 
+        ganheiBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int valorGanhou= Integer.parseInt(mesaMenu.getText().toString());
+                mesaMenu.setText(""+0);
+                total.setText(""+(Integer.parseInt(total.getText().toString())+valorGanhou));
+                for(Ficha f : fichaSet){
+                    int apostaInt = Integer.parseInt(aposta.getText().toString());
+                    int soma = apostaInt - (f.getValor()*f.getQuantidade());
+                    String resultado = Integer.toString(soma);
+                    aposta.setText(resultado);
+
+
+                    f.setQuantidade(0);
+                }
+
+            }
+        });
+
         apostarBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Aposta aposta = new Aposta(fichaSet);
-                Jogada jogada = new Jogada(user.getUid() ,aposta, user.getDisplayName(), false);
+                Aposta apostaObject = new Aposta(fichaSet);
+                Jogada jogada = new Jogada(user.getUid() ,apostaObject, user.getDisplayName(), false);
                 AdicionaAposta.adiciona(jogada);
 
                 for(Ficha f : fichaSet) {
                     f.setQuantidade(0);
                 }
+
+                aposta.setText("0");
             }
 
         });
