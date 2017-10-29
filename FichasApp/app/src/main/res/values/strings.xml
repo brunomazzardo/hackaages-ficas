@@ -1,3 +1,21 @@
 <resources>
-    <string name="app_name">FichasApp</string>
+    <string name="app_name">My Chips</string>
+    <string name="entrar_sala">Entrar em um Lobby</string>
+    <string name="configura_es">Configurações</string>
+    <string name="nome_da_sala">Nome da Sala</string>
+    <string name="buy_in">Buy-in</string>
+    <string name="re_buy">Re-Buy</string>
+    <string name="valor_em_fichas">Valor em Fichas</string>
+    <string name="_100">100</string>
+    <string name="_1_000">1000</string>
+    <string name="_10_000">10000</string>
+    <string name="criar_sala">Criar um Lobby</string>
+    <string name="bombando">Bombando</string>
+    <string name="loading">Carregando...</string>
+    <string name="logoff_text">Olá %s, \nclique aqui para sair</string>
+
+    <string name="facebook_app_id">832760876904716</string>
+    <string name="fb_login_protocol_scheme">fb832760876904716</string>
+    <string name="bem_vindo">Bem-vindo %s</string>
+
 </resources>

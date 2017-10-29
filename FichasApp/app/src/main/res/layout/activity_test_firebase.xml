@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ages.hacka.fichasapp.criarEntrarSala"
-    android:background="@drawable/pano_mesa">
+    tools:context="ages.hacka.fichasapp.activities.TestFirebaseActivity">
 
 </android.support.constraint.ConstraintLayout>
