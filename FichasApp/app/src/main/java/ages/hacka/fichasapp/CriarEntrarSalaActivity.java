@@ -69,8 +69,22 @@ public class CriarEntrarSalaActivity extends AppCompatActivity implements View.O
                 AlertDialog.Builder builder = new AlertDialog.Builder(CriarEntrarSalaActivity.this, R.style.CustomAlertDialog);
                 View view1 = getLayoutInflater().inflate(R.layout.popup_entrar_sala, null);
                 builder.setView(view1);
-                AlertDialog dialog = builder.create();
+                final AlertDialog dialog = builder.create();
                 dialog.show();
+
+                EditText etCodigoSala = view1.findViewById(R.id.etCodigoSala);
+                Button btnCodigoSala = view1.findViewById(R.id.btnCodigoSala);
+
+                btnCodigoSala.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                        Intent intent = new Intent(getBaseContext(), SalaJogoActivity.class);
+                        //Enviar jogador aqui ao encontrar sala
+                        //
+                        startActivity(intent);
+                    }
+                });
             }
         });
     }

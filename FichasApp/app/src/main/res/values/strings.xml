@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FichasApp</string>
+    <string name="app_name">My Chips</string>
     <string name="entrar_sala">Entrar em um Lobby</string>
     <string name="configura_es">Configurações</string>
     <string name="nome_da_sala">Nome da Sala</string>
