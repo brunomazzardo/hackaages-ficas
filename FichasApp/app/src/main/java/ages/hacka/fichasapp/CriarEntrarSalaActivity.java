@@ -53,7 +53,7 @@ public class CriarEntrarSalaActivity extends AppCompatActivity implements View.O
         btnCriarSala.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getBaseContext(),TestFirebaseActivity.class);
+                Intent intent = new Intent(getBaseContext(),ConfiguracaoSalaActivity.class);
                 startActivity(intent);
                 finish();
             }
