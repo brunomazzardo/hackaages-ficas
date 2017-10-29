@@ -200,7 +200,7 @@ public class SalaJogoActivity extends AppCompatActivity {
                     mesaMenu.setText("" + (valorAtual + jogada.calculaFicha()));
                 }else{
                     if(jogada.getId()==null){
-                        mesaMenu.setText("");
+                        mesaMenu.setText("0");
                     }
 
                 }
