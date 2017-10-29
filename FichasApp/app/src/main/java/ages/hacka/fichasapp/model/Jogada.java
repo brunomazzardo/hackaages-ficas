@@ -55,7 +55,7 @@ public class Jogada  implements Serializable {
         return "O jogador "+ nomeJogador +" apostou " + calculaFicha() + " fichas";
     }
 
-    private int calculaFicha() {
+    public int calculaFicha() {
         int valor=0;
         for (Ficha f: aposta.getFichas())
             valor+= (f.getValor()* f.getQuantidade());

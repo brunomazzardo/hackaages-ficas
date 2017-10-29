@@ -36,6 +36,7 @@ public class SalaJogoActivity extends AppCompatActivity {
     Button cancelarBtn;
     Button ganheiBtn;
     TextView log;
+    TextView mesaMenu;
     String novaMsg = "";
 
 
@@ -55,6 +56,7 @@ public class SalaJogoActivity extends AppCompatActivity {
         apostarBtn = findViewById(R.id.apostarBtn);
         cancelarBtn = findViewById(R.id.cancelarBtn);
         log = findViewById(R.id.log);
+        mesaMenu = findViewById(R.id.mesaNum);
 
 
         final Ficha ficha10= new Ficha(10);
@@ -153,7 +155,11 @@ public class SalaJogoActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Jogada jogada =  dataSnapshot.getValue(Jogada.class);
                 String nLog = (log.getText().toString()) + "\n" + jogada.toString();
+
                 log.setText(nLog);
+                int valorAtual=Integer.parseInt(mesaMenu.getText().toString());
+
+                mesaMenu.setText(""+(valorAtual+jogada.calculaFicha()));
             }
 
             @Override
