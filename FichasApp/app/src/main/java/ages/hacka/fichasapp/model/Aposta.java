@@ -30,4 +30,11 @@ public class Aposta implements Serializable {
 
         this.fichas = fichas;
     }
+
+    @Override
+    public String toString() {
+        return "Aposta{" +
+                "fichas=" + fichas +
+                '}';
+    }
 }

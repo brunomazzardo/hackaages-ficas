@@ -17,15 +17,10 @@
         import com.google.firebase.database.ValueEventListener;
 
         import java.util.ArrayList;
-        import java.util.HashMap;
-        import java.util.List;
-        import java.util.Map;
 
-        import ages.hacka.fichasapp.activities.TestFirebaseActivity;
         import ages.hacka.fichasapp.model.Aposta;
         import ages.hacka.fichasapp.model.Ficha;
         import ages.hacka.fichasapp.model.Jogada;
-        import ages.hacka.fichasapp.model.Sala;
         import ages.hacka.fichasapp.util.AdicionaAposta;
 
 public class SalaJogoActivity extends AppCompatActivity {
@@ -73,7 +68,7 @@ public class SalaJogoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Aposta aposta = new Aposta(fichaSet);
-                Jogada jogada = new Jogada(user.getUid() ,aposta,false);
+                Jogada jogada = new Jogada(user.getUid() ,aposta, user.getDisplayName(), false);
                 AdicionaAposta.adiciona(jogada);
             }
 
@@ -136,15 +131,15 @@ public class SalaJogoActivity extends AppCompatActivity {
 
 
         DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference ref = rootRef.child("salas/-KxaHQa9r_igFHHhMy01/jogos/0/mao/jogadas");
+        DatabaseReference ref = rootRef.child("salas/-KxaHQa9r_igFHHhMy01/jogos/0/mao/jogadas/0");
 
 
 
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
-                Toast.makeText(getBaseContext(),"SHOW",Toast.LENGTH_LONG).show();
+                Jogada jogada =  dataSnapshot.getValue(Jogada.class);
+                Toast.makeText(getBaseContext(),jogada.toString(),Toast.LENGTH_LONG).show();
             }
 
             @Override

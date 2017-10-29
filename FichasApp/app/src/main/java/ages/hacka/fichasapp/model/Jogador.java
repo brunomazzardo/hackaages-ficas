@@ -13,6 +13,7 @@ public class Jogador implements Serializable {
 Aposta aposta;
 private String email;
 
+
     public String getEmail() {
         return email;
     }
