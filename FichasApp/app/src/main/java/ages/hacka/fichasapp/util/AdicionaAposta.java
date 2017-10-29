@@ -23,7 +23,8 @@ public class AdicionaAposta {
     public static boolean adiciona(final Jogada jogada){
         final ArrayList<Jogada> jogadas = new ArrayList<>();
         final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("salas/-KxaHQa9r_igFHHhMy01/jogos/0/mao/jogadas/");
-        databaseReference.setValue(jogada);
+        jogadas.add(jogada);
+        databaseReference.setValue(jogadas);
 
         return false;
 
