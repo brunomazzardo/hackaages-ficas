@@ -15,6 +15,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.Picasso;
 
+import ages.hacka.fichasapp.model.Sala;
+import ages.hacka.fichasapp.util.BuscaSala;
+
 
 public class CriarEntrarSalaActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -62,17 +65,22 @@ public class CriarEntrarSalaActivity extends AppCompatActivity implements View.O
                 final AlertDialog dialog = builder.create();
                 dialog.show();
 
-                EditText etCodigoSala = view1.findViewById(R.id.etCodigoSala);
-                Button btnCodigoSala = view1.findViewById(R.id.btnCodigoSala);
+                final EditText etCodigoSala = view1.findViewById(R.id.etCodigoSala);
+                final Button btnCodigoSala = view1.findViewById(R.id.btnCodigoSala);
 
                 btnCodigoSala.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        dialog.dismiss();
+//                        dialog.dismiss();
                         Intent intent = new Intent(getBaseContext(), SalaJogoActivity.class);
-                        //Enviar jogador aqui ao encontrar sala
-                        //
-                        startActivity(intent);
+
+                        String codigo = etCodigoSala.getText().toString();
+                        Sala sala = BuscaSala.busca(codigo);
+
+                        if(sala != null){
+                            intent.putExtra("sala", sala);
+                            startActivity(intent);
+                        }
                     }
                 });
             }
