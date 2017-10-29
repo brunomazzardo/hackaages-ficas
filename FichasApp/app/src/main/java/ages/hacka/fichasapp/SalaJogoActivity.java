@@ -40,6 +40,8 @@ public class SalaJogoActivity extends AppCompatActivity {
     Button apostarBtn;
     Button cancelarBtn;
     Button ganheiBtn;
+    TextView log;
+    String novaMsg = "";
 
 
     @Override
@@ -57,6 +59,8 @@ public class SalaJogoActivity extends AppCompatActivity {
         user = FirebaseAuth.getInstance().getCurrentUser();
         apostarBtn = findViewById(R.id.apostarBtn);
         cancelarBtn = findViewById(R.id.cancelarBtn);
+        log = findViewById(R.id.log);
+
 
         final Ficha ficha10= new Ficha(10);
         final Ficha ficha20= new Ficha(20);
@@ -148,7 +152,8 @@ public class SalaJogoActivity extends AppCompatActivity {
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
+                String nLog = (log.getText().toString()) + "\n" + novaMsg;
+                log.setText(nLog);
                 Toast.makeText(getBaseContext(),"SHOW",Toast.LENGTH_LONG).show();
             }
 
@@ -173,6 +178,5 @@ public class SalaJogoActivity extends AppCompatActivity {
         int subtracao = totalInt - num;
         String result = Integer.toString(subtracao);
         total.setText(result);
-
     }
 }
