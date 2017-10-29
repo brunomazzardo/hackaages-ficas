@@ -1,12 +1,9 @@
 package ages.hacka.fichasapp;
 
-import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.text.InputType;
-import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,13 +11,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.facebook.login.LoginManager;
-import com.google.android.gms.common.api.ResultCallback;
-import com.google.android.gms.common.api.Status;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.Picasso;
 
-import ages.hacka.fichasapp.activities.TestFirebaseActivity;
+import ages.hacka.fichasapp.model.Sala;
+import ages.hacka.fichasapp.util.BuscaSala;
 
 
 public class CriarEntrarSalaActivity extends AppCompatActivity implements View.OnClickListener {
@@ -62,50 +58,31 @@ public class CriarEntrarSalaActivity extends AppCompatActivity implements View.O
         btnEntrarSala.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getBaseContext(),TestFirebaseActivity.class);
-                startActivity(intent);
-                finish();
 
+                AlertDialog.Builder builder = new AlertDialog.Builder(CriarEntrarSalaActivity.this, R.style.CustomAlertDialog);
+                View view1 = getLayoutInflater().inflate(R.layout.popup_entrar_sala, null);
+                builder.setView(view1);
+                final AlertDialog dialog = builder.create();
+                dialog.show();
 
-                //Alerter funcionando
+                final EditText etCodigoSala = view1.findViewById(R.id.etCodigoSala);
+                final Button btnCodigoSala = view1.findViewById(R.id.btnCodigoSala);
 
-//                AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(CriarEntrarSalaActivity.this, R.style.CustomAlertDialog));
-//                builder.setTitle("Id da Sala");
-//
-//// Set up the input
-//                final EditText input = new EditText(CriarEntrarSalaActivity.this);
-//// Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
-//                input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-//                builder.setView(input);
-//
-//// Set up the buttons
-//                builder.setPositiveButton("Entrar", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                       m_Text = input.getText().toString();
-//                    }
-//                });
-//                builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        dialog.cancel();
-//                    }
-//                });
-//
-//                builder.show();
+                btnCodigoSala.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+//                        dialog.dismiss();
+                        Intent intent = new Intent(getBaseContext(), SalaJogoActivity.class);
 
+                        String codigo = etCodigoSala.getText().toString();
+                        Sala sala = BuscaSala.busca(codigo);
 
-                //Com uma classe que chama o xml e poe em cima
-//                AppDialog dialog = new AppDialog(CriarEntrarSalaActivity.this);
-//                dialog.show();
-//
-
-
-                //Com um xml zuado
-//                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-//                        getBaseContext(), R.style.CustomAlertDialog);
-//                AlertDialog alertDialog = alertDialogBuilder.create();
-//                alertDialog.show();
+                        if(sala != null){
+                            intent.putExtra("sala", sala);
+                            startActivity(intent);
+                        }
+                    }
+                });
             }
         });
     }
