@@ -22,6 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import ages.hacka.fichasapp.activities.TestFirebaseActivity;
 import ages.hacka.fichasapp.model.Sala;
 import ages.hacka.fichasapp.util.BuscaSala;
 
@@ -74,6 +75,8 @@ public class CriarEntrarSalaActivity extends AppCompatActivity implements View.O
 
                 final EditText etCodigoSala = view1.findViewById(R.id.etCodigoSala);
                 final Button btnCodigoSala = view1.findViewById(R.id.btnCodigoSala);
+//                Intent intent = new Intent(getBaseContext(), TestFirebaseActivity.class);
+//                startActivity(intent);
 
                 btnCodigoSala.setOnClickListener(new View.OnClickListener() {
                     @Override

@@ -56,7 +56,7 @@ public class SalaJogoActivity extends AppCompatActivity {
         ficha100Imgg = (ImageView) findViewById(R.id.ficha100Img);
         aposta = findViewById(R.id.apostaNum);
         total = findViewById(R.id.totalNum);
-        ganheiBtn =findViewById(R.id.ganheiBtn);
+        ganheiBtn = findViewById(R.id.ganheiBtn);
         user = FirebaseAuth.getInstance().getCurrentUser();
         apostarBtn = findViewById(R.id.apostarBtn);
         cancelarBtn = findViewById(R.id.cancelarBtn);
@@ -64,11 +64,11 @@ public class SalaJogoActivity extends AppCompatActivity {
         mesaMenu = findViewById(R.id.mesaNum);
 
 
-        final Ficha ficha10= new Ficha(10);
-        final Ficha ficha20= new Ficha(20);
-        final Ficha ficha50= new Ficha(50);
-        final Ficha ficha100= new Ficha(100);
-        final ArrayList<Ficha> fichaSet= new ArrayList<>();
+        final Ficha ficha10 = new Ficha(10);
+        final Ficha ficha20 = new Ficha(20);
+        final Ficha ficha50 = new Ficha(50);
+        final Ficha ficha100 = new Ficha(100);
+        final ArrayList<Ficha> fichaSet = new ArrayList<>();
 
         fichaSet.add(ficha10);
         fichaSet.add(ficha20);
@@ -104,23 +104,23 @@ public class SalaJogoActivity extends AppCompatActivity {
         ganheiBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int valorGanhou= Integer.parseInt(mesaMenu.getText().toString());
-                mesaMenu.setText(""+0);
-                total.setText(""+(Integer.parseInt(total.getText().toString())+valorGanhou));
-                for(Ficha f : fichaSet){
+                int valorGanhou = Integer.parseInt(mesaMenu.getText().toString());
+                mesaMenu.setText("" + 0);
+                total.setText("" + (Integer.parseInt(total.getText().toString()) + valorGanhou));
+                for (Ficha f : fichaSet) {
                     int apostaInt = Integer.parseInt(aposta.getText().toString());
-                    int soma = apostaInt - (f.getValor()*f.getQuantidade());
+                    int soma = apostaInt - (f.getValor() * f.getQuantidade());
                     String resultado = Integer.toString(soma);
                     aposta.setText(resultado);
 
 
                     f.setQuantidade(0);
                 }
-                Ficha ficha10= new Ficha(10);
-                Ficha ficha20= new Ficha(20);
-                Ficha ficha50= new Ficha(50);
-                Ficha ficha100= new Ficha(100);
-                List<Ficha> fichaSet= new ArrayList<>();
+                Ficha ficha10 = new Ficha(10);
+                Ficha ficha20 = new Ficha(20);
+                Ficha ficha50 = new Ficha(50);
+                Ficha ficha100 = new Ficha(100);
+                List<Ficha> fichaSet = new ArrayList<>();
                 fichaSet.add(ficha10);
                 fichaSet.add(ficha20);
                 fichaSet.add(ficha50);
@@ -137,10 +137,10 @@ public class SalaJogoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Aposta apostaObject = new Aposta(fichaSet);
-                Jogada jogada = new Jogada(user.getUid() ,apostaObject, user.getDisplayName(), false);
+                Jogada jogada = new Jogada(user.getUid(), apostaObject, user.getDisplayName(), false);
                 AdicionaAposta.adiciona(jogada);
 
-                for(Ficha f : fichaSet) {
+                for (Ficha f : fichaSet) {
                     f.setQuantidade(0);
                 }
 
@@ -152,14 +152,15 @@ public class SalaJogoActivity extends AppCompatActivity {
         cancelarBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                for(Ficha f : fichaSet){
+                for (Ficha f : fichaSet) {
                     int apostaInt = Integer.parseInt(aposta.getText().toString());
-                    int soma = apostaInt - (f.getValor()*f.getQuantidade());
+                    int soma = apostaInt - (f.getValor() * f.getQuantidade());
                     String resultado = Integer.toString(soma);
                     aposta.setText(resultado);
 
                     int totalInt = Integer.parseInt(total.getText().toString());
-                    int subtracao = totalInt + (f.getValor()*f.getQuantidade());;
+                    int subtracao = totalInt + (f.getValor() * f.getQuantidade());
+                    ;
                     String result = Integer.toString(subtracao);
                     total.setText(result);
 
@@ -173,7 +174,7 @@ public class SalaJogoActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (Integer.parseInt(total.getText().toString()) < 10) return;
                 aposter(10);
-                ficha10.setQuantidade(ficha10.getQuantidade()+1);
+                ficha10.setQuantidade(ficha10.getQuantidade() + 1);
             }
 
         });
@@ -183,7 +184,7 @@ public class SalaJogoActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (Integer.parseInt(total.getText().toString()) < 20) return;
                 aposter(20);
-                ficha20.setQuantidade(ficha20.getQuantidade()+1);
+                ficha20.setQuantidade(ficha20.getQuantidade() + 1);
             }
 
         });
@@ -193,7 +194,7 @@ public class SalaJogoActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (Integer.parseInt(total.getText().toString()) < 50) return;
                 aposter(50);
-                ficha50.setQuantidade(ficha50.getQuantidade()+1);
+                ficha50.setQuantidade(ficha50.getQuantidade() + 1);
             }
 
         });
@@ -203,7 +204,7 @@ public class SalaJogoActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (Integer.parseInt(total.getText().toString()) < 100) return;
                 aposter(100);
-                ficha100.setQuantidade(ficha100.getQuantidade()+1);
+                ficha100.setQuantidade(ficha100.getQuantidade() + 1);
             }
 
         });
@@ -211,7 +212,6 @@ public class SalaJogoActivity extends AppCompatActivity {
 
         DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
         DatabaseReference ref = rootRef.child("salas/-KxaHQa9r_igFHHhMy01/jogos/0/mao/jogadas/0");
-
 
 
         ref.addValueEventListener(new ValueEventListener() {
@@ -240,9 +240,9 @@ public class SalaJogoActivity extends AppCompatActivity {
                 Toast.makeText(getBaseContext(),"Failed to read value." + error.toException() ,Toast.LENGTH_LONG);
             }
         });
-    }
+   }
 
-    public void aposter(int num){
+    public void aposter(int num) {
 //        Toast toast = Toast.makeText(getBaseContext(), num, Toast.LENGTH_LONG);
 //        toast.show();
 
@@ -257,3 +257,4 @@ public class SalaJogoActivity extends AppCompatActivity {
         total.setText(result);
     }
 }
+

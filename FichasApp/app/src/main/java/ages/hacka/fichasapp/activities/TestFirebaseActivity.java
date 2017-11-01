@@ -26,7 +26,7 @@ import ages.hacka.fichasapp.model.Sala;
 public class TestFirebaseActivity extends AppCompatActivity {
 
     DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
-    DatabaseReference salasRef = rootRef.child("salas");
+    DatabaseReference salasRef = rootRef.child("salas/-KxaHQa9r_igFHHhMy01");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
